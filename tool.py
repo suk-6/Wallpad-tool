@@ -1,6 +1,8 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from PyQt5.QtCore import QCoreApplication
+import time
 
 form_class = uic.loadUiType("tool.ui")[0]
 
@@ -9,6 +11,11 @@ class Window_2(QMainWindow, form_class):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle("Asseertive Wallpad Tool")
+        self.close_btn.clicked.connect(QCoreApplication.instance().quit)
+        self.Result()
+
+    def Result(self):
+        self.result_text.setText("결과값 출력")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

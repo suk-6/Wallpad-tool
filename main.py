@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from PyQt5.QtCore import QCoreApplication
 from tool import Window_2
 
 form_class = uic.loadUiType("start.ui")[0]
