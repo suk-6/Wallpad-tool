@@ -60,11 +60,11 @@
      <property name="plainText">
       <string>점검 내역
 
-- 서비스 중인 포트 점검
+- 사용 중인 포트 점검
 
-- 카메라 사용여부 점검
+- 최근 3시간 동안 실행된 앱 점검
 
-- 카메라 사용 앱 확인</string>
+- 실시간 카메라 사용 검사</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">

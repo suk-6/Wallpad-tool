@@ -4,10 +4,13 @@ from PyQt5 import uic
 from PyQt5.QtCore import QCoreApplication
 import time
 from adb import *
-import asyncio
+from datetime import datetime
+
+now = datetime.now()
 
 form_class = uic.loadUiType("start.ui")[0]
 form_class2 = uic.loadUiType("tool.ui")[0]
+
 
 class Window_1(QMainWindow, form_class):
     def __init__(self):
@@ -21,6 +24,7 @@ class Window_1(QMainWindow, form_class):
         self.w = Window_2()
         self.w.show()
 
+
 class Window_2(QMainWindow, form_class2):
     def __init__(self):
         super().__init__()
@@ -30,14 +34,17 @@ class Window_2(QMainWindow, form_class2):
         self.start_btn.clicked.connect(self.Result)
         self.clear_btn.clicked.connect(self.result_text.clear)
 
-    async def Result_text(self):
+    def Result_text(self):
         add_text = self.result_text.append
+        add_text("현재 시각: "+now.strftime('%Y-%m-%d %H:%M'))
         add_text(tool.t_netstat())
-        await asyncio.sleep(1.0)
-        add_text("sleep 1")
+        add_text(tool.t_dumpsys_memory())
+        add_text(tool.t_camara())
+        add_text("\n")
 
     def Result(self):
-        asyncio.run(Window_2.Result_text()) # 야 비동기; 빨리 돌으라고;
+        Window_2.Result_text(self)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
