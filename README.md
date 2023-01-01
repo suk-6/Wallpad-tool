@@ -6,3 +6,6 @@
 
 ## 기능
 Adb Shell을 이용해 실시간 카메라 사용 여부 확인, 열린 포트 확인, 사전 등록된 Webcam, VPN 등의 앱 설치 체크
+
+## 시연
+[영상 보기](https://url.dyhs.kr/wallpad)
